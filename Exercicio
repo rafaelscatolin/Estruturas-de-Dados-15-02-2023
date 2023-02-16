@@ -10,23 +10,71 @@ Crie um menu para:
 
 #include <stdio.h>
 #include <stdlib.h>
+#define MAX 10
 
 /*definições iniciais*/
-int MAX = 10;
-int pilha[10];
+int pilha[MAX];
 int topo = -1;
+
+int isempty() {
+	if (topo == -1) {
+		return 1;
+	}
+	return 0;
+}
+
+int isfull() {
+	if (topo == MAX) {
+		return 1;
+	}
+	return 0;
+}
+
+int push(int valor){
+	if(!isfull()){
+		topo = topo+1;
+		pilha[topo] = valor;
+		return 1;
+	}
+	else {
+		printf("\nNao inseriu. A pilha esta cheia!");
+		return 0;
+	}
+}
+
+void imprimir(){
+	for(int i=topo; i>=0; i--){
+		printf("%d\n", pilha[i]);
+	}
+}
 
 
 int main() {
 	int op;
+	int numero;
 	do {
-		printf("*** MENU ***");
+		printf("\n*** MENU ***");
 		printf("\n1- Push");
 		printf("\n2- Pop");
 		printf("\n3- Topo");
 		printf("\n4- Imprimir");
 		printf("\n5- Sair");
 		printf("\nDigite uma opcao: ");
-		scanf("%d", op);
+		scanf("%d", &op);
+		
+		switch (op) {
+			case 1:
+				printf("\nDigite um numero a ser empilhado: ");
+				scanf("%d",numero);
+				push(numero);
+				
+				break;
+		
+			case 4:
+				imprimir();
+				break;
+		};
 	} while (op != 5);
+	
+	return 0;
 }
