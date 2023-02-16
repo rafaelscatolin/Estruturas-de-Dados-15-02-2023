@@ -1,0 +1,32 @@
+/*Faça um programa em C para implementar uma pilha estática, usando array.
+O programa deve conter:
+- Implementação das funções: peek(), isempty(), isfull(), pop(), push()
+Crie um menu para:
+1) Empilhar
+2) Desempilhar
+3) Verificar o topo
+4) Imprimir a pilha
+5) Sair*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+/*definições iniciais*/
+int MAX = 10;
+int pilha[10];
+int topo = -1;
+
+
+int main() {
+	int op;
+	do {
+		printf("*** MENU ***");
+		printf("\n1- Push");
+		printf("\n2- Pop");
+		printf("\n3- Topo");
+		printf("\n4- Imprimir");
+		printf("\n5- Sair");
+		printf("\nDigite uma opcao: ");
+		scanf("%d", op);
+	} while (op != 5);
+}
